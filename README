@@ -33,7 +33,7 @@ Sample Output:
 
 
 ```
-docker run -it appuio/aks-maintenance updateNodes.sh xxxx xxxx workers
+docker run -it docker.io/appuio/aks-maintenance updateNodes.sh xxxx xxxx workers
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code xxxxxxx to authenticate.
 The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
 xxxx
