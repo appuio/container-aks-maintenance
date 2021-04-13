@@ -1,6 +1,6 @@
 # container-aks-maintenance
 
-[![Build Status](https://img.shields.io/github/workflow/status/appuio/container-aks-maintenance/Master)](https://github.com/appuio/container-aks-maintenance/actions/workflows/master.yml)
+[![Build Status](https://img.shields.io/github/workflow/status/appuio/container-aks-maintenance/Main)](https://github.com/appuio/container-aks-maintenance/actions/workflows/main.yaml)
 [![License](https://img.shields.io/github/license/appuio/container-aks-maintenance.svg)](https://github.com/appuio/container-aks-maintenance/blob/master/LICENSE)
 
 
