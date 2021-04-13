@@ -61,4 +61,3 @@ if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
 else
     echo "-> Nodepool image upgrade not required"
 fi
-
