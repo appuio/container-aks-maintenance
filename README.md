@@ -8,8 +8,8 @@
 
 The built images are available from
 
-* [Docker Hub][hub]
-* [Quay.io][quay]
+* [Docker Hub](https://hub.docker.com/r/appuio/aks-maintenance)
+* [Quay.io](https://quay.io/repository/appuio/aks-maintenance)
 
 
 ## Contents
