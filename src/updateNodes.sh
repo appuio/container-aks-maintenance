@@ -1,18 +1,43 @@
 #!/bin/bash
 
+set -e -u -o pipefail
+
 usage () {
     cat <<HELP_USAGE
     This script requires the following arguments:
-    $0 <resource-group> <cluster-name> <nodepool-name> [apply]
+    $0 -r <resource-group> -c <cluster-name> -n <nodepool-name> -t <tenant-id> [apply]
     Use 'apply' to execute upgrade.
 HELP_USAGE
 }
 
-if [  $# -le 2 ]
-	then
-		usage
-		exit 1
-	fi
+RESOURCE_GROUP=""
+CLUSTER_NAME=""
+NODE_POOL=""
+TENANT_ID=""
+
+while getopts ":r:c:n:t:" opt; do
+    case ${opt} in
+        r )
+            RESOURCE_GROUP=$OPTARG
+            ;;
+        c )
+            CLUSTER_NAME=$OPTARG
+            ;;
+        n )
+            NODE_POOL=$OPTARG
+            ;;
+        t )
+            TENANT_ID=$OPTARG
+            ;;
+        \? )
+            usage
+            ;;
+        : )
+            echo "Invalid option: $OPTARG requires an argument" 1>&2
+            ;;
+    esac
+done
+shift $((OPTIND -1))
 
 if ! command -v jq &> /dev/null
 then
@@ -27,12 +52,13 @@ then
 fi
 
 echo "Running 'az login':"
-az login
 
-RESOURCE_GROUP=$1
-CLUSTER_NAME=$2
-NODE_POOL=$3
-APPLY=$4
+if [ -z "$TENANT_ID" ]
+then
+    az login
+else
+    az login --tenant $TENANT_ID
+fi
 
 echo "Checking nodepool image upgrade"
 echo "  Resource group: '$RESOURCE_GROUP'";
