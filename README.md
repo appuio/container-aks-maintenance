@@ -26,14 +26,14 @@ The built images are available from
 ### Nodepool image upgrade
 
 ```bash
-docker run -it docker.io/appuio/aks-maintenance: updateNodes.sh <resource-group> <cluster-name> <nodepool-name> [apply]
+docker run -it docker.io/appuio/aks-maintenance: updateNodes.sh -r <resource-group> -c <cluster-name> -n <nodepool-name> [-t <tenant-id>] [apply]
 ```
 
 Sample Output:
 
 
 ```
-docker run -it docker.io/appuio/aks-maintenance updateNodes.sh xxxx xxxx workers
+docker run -it docker.io/appuio/aks-maintenance updateNodes.sh -r xxxx -c xxxx -n workers -t xxxxx
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code xxxxxxx to authenticate.
 The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
 xxxx
