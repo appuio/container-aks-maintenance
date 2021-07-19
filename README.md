@@ -26,7 +26,7 @@ The built images are available from
 ### Nodepool image upgrade
 
 ```bash
-docker run -it docker.io/appuio/aks-maintenance: updateNodes.sh -r <resource-group> -c <cluster-name> -n <nodepool-name> [-t <tenant-id>] [apply]
+docker run -it docker.io/appuio/aks-maintenance: updateNodes.sh -r <resource-group> -c <cluster-name> -n <nodepool-name> [-t <tenant-id>] [-a apply]
 ```
 
 Sample Output:
@@ -62,7 +62,7 @@ Latest nodepool image version: 'AKSUbuntu-1804-2021.03.29'
 Curent nodepool image version: 'AKSUbuntu-1804-2021.02.17'
 
 -> Nodepool image upgrade required
--> please add apply to your command to upgrade
+-> please add -a apply to your command to upgrade
 ```
 
 

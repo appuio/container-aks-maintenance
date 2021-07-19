@@ -5,8 +5,8 @@ set -e -u -o pipefail
 usage () {
     cat <<HELP_USAGE
     This script requires the following arguments:
-    $0 -r <resource-group> -c <cluster-name> -n <nodepool-name> -t <tenant-id> [apply]
-    Use 'apply' to execute upgrade.
+    $0 -r <resource-group> -c <cluster-name> -n <nodepool-name> [-t <tenant-id>] [-a apply]
+    Use '-a apply' to execute upgrade.
 HELP_USAGE
 }
 
@@ -14,8 +14,9 @@ RESOURCE_GROUP=""
 CLUSTER_NAME=""
 NODE_POOL=""
 TENANT_ID=""
+APPLY=""
 
-while getopts ":r:c:n:t:" opt; do
+while getopts ":r:c:n:t:a:" opt; do
     case ${opt} in
         r )
             RESOURCE_GROUP=$OPTARG
@@ -28,6 +29,9 @@ while getopts ":r:c:n:t:" opt; do
             ;;
         t )
             TENANT_ID=$OPTARG
+            ;;
+        a )
+            APPLY=$OPTARG
             ;;
         \? )
             usage
@@ -50,6 +54,7 @@ then
     echo "Cannot run $0. This scripts requires 'az'. Please install 'az' first!"
     exit
 fi
+
 
 echo "Running 'az login':"
 
