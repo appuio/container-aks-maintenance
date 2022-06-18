@@ -1,4 +1,4 @@
-ARG AZURE_CLI_VERSION=2.9.1
+ARG AZURE_CLI_VERSION=2.37.0
 
 FROM mcr.microsoft.com/azure-cli:$AZURE_CLI_VERSION
 
